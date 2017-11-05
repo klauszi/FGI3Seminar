@@ -1,0 +1,19 @@
+Zusammenfassung:
+Wir präsentieren eine verbesserte Schranke für das Cover Time des
+coalescing braching random walk Prozess (COBRA). Der COBRA
+Prozess, eingeführt in [Dutta et al. SPAA 2013], kann als das
+Verteilen von Nachrichten durch einen ungerichteten Graphen mit
+synchronisierten Runden angesehen werden. In jeder Runde senden
+die Knoten, welche in der vorherigen Runde eine Nachricht
+erhalten habe, die erhaltende Nachricht an b zufällig ausgesuchte
+Nachbarn weiter. Dabei können solche Knoten die Nachricht von
+mehren Nachbarn gleichzeitig oder häufiger als ein Mal erhalten
+haben.  In einem COBRA Prozess wird dabei 
+für gewöhnlich ein ganzzahliger Verteilungsgrad b >= 2 angegeben (Der Fall mit b=1
+entspräche dem gewöhnlichen Randam Walk Prozess). Der Zweck solch
+eines Prozesses ist die schnelle Verbreitung von Informationen,
+jedoch mit einer begrenzten Anzahl von Übertragungen der Knoten
+pro Runde.
+Die cover time des COBRA wird durch die erwartete Anzahl von
+Runden definiert, bis zumindestens jeder Knoten einmal die Nachricht
+erhalten hat.

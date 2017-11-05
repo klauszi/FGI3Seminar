@@ -1,0 +1,18 @@
+Einleitung:
+Dutta und weitere untersuchten das folgende COBRA Prozess zum
+Verbreiten von Information in einem zusammenhängenden Graphen mit
+n Knoten und m Kanten. Am Anfang einer Runde übermitteln die
+Knoten, welche die Information besitzen, diese Informationen an b
+zufällig ausgewählte Nachbarn. Dieser hört solange dann auf bis
+er die Information wiedererlangt. Am Ende einer Runde werden die
+Informationen mit dem selben Zielknoten verschmolzen
+(coalescing). Demnach hilft es nicht, dass ein Knoten mehr
+als eine Information erhält. Daher heißt dieser Vorgang mit 
+Verschmelzen (coalescing) und Verbreiten (branching) COBRA. 
+
+Ein COBRA Prozess kann als ein Partikel Prozess modelliert
+werden. Am Anfang jeder Runde, teilt sich jeder Partikel in b
+Partikeln. Diese Partikeln verteilen sich dann unabhängig zu
+seinen Nachbarn. Am Ende jeder Runde formen sich die Partikeln zu
+einem einzelnen Partikel, wenn sie sich bei einem Nachbar
+treffen.

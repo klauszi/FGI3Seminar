@@ -1,0 +1,31 @@
+Der Zweck eines COBRA Prozess ist das zügige verteilen von
+Informationen an alle Knoten mit der Berücksichtigung einer
+Grenze von Übertragungsanzahl von Knoten für jede Runde ohne,
+dass jeder Knoten diese Information für die nächste Runde
+speichert. Im besonderen Fall von b = 1, der COBRA-Prozess ist
+ein einfacher Random Walk, welches eine niedrige Übertragungsrate
+benötigt, jedoch die zügige Verteilungsbedingung nicht erfüllt.
+
+Die Hauptanalyse der Informationsübertragung ist die benötigte
+Zeit zum informieren (bzw. erreichen) aller Knoten. In Anbetracht
+von Random Walk, wird dies als Cover Time bezeichnet.  Die "mit
+hoher Wahrscheinlichkeit(d,h. 1 - n^c für c ist konstant)" Cover
+Time Ergebnisse für die COBRA Prozesse für den Fall b=2 bestehen
+aus:
+- vollständige Graphen Kn benötigen O(log(n)) Runden
+- reguläre Graphen benötigen O(log^2(n)) 
+- D-dimensionale Gitter benötigen eine Laufzeit von O(n^d *
+  (log(n^d)^k) 
+Verbesserte Laufzeiten, welche in [8] vorkommen, zeigen eine
+Schranke von O((r^4/pi^2) log^2n) für reguläre Graphen mit dem
+Leitwert phi, O((D^2n^(1/D))) für D-dimensionale Gitter und
+generell O(n^(11/4) log(n)) für Graphen. 
+
+Sei Diam(G) der Diameter eines Graphens, dann ist max(log_2(n),
+Diam(G)) die untere Schranke von Runden, die für den
+Cobra-Prozess mit b=2 benötigt wird. Dies ist das bestmögliche,
+da in jeder Runde die doppelte Anzahl an besuchten Knoten maximal
+hinzukommen können. Wenn man die benötigte Laufzeit der
+vollständigen Graphen und der unteren Schranke betrachtet, so
+liegt es nahe, dass die Cover Time für r-reguläre Graphen in
+O(log(n)) für 3 <= r <= n-1 liegen müsse.

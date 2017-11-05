@@ -1,0 +1,27 @@
+Unser Hauptresultate sind erstens die obere Grenze von O(m +
+(dmax)^2 log(n)) = O(n^2log(n)) für die COBRA cover time für
+jedes beliebige und zusammenhängende Graphen mit n Knoten, m Kanten und
+dmax als den maximalsten Grad eines von Knoten im Graphen. Zweitens die
+Grenze von O((r^2 + r/(1-gamma)) log(n)) für r-reguläre
+zusammenhängede Graphen mit dem zweiten Eigenwert gamma.
+/* 
+/* Was ist eigentlich der zweiten Eigenwert eines Graphens?  */
+/* -> Aus der Adjazenzmatrix M(nxn) eines Graphens (wenn zwei Knoten */
+/* v_1 und v_2 eine */
+/* Verbindung eingehen ist M(v_1,v_2) = 1, ansonsten 0)  */
+*/
+Unsere obere Schranke verbessert die Schranken O(n^(11/4) log(n))
+und O((r^4/phi^2) log2n), wobei phi der leitwert des Graphens
+ist, und vervollständigt die Obergrenze O((1/(1-lambda))^3
+log(n)) in [Cooper...] 
+/* Was ist der Leitwert (engl. conductance)
+/* Sei S subset V eine Knotenmenge aus G, dann ist das Verhältnis */
+/* der Summe aller Gewichte von ausgehenden Kanten von S zu der */
+/* Summer alle Gewichte von ausgehenden und eingehenden Kanten der */
+/* Leitwert gdw gegeben, wenn es kein anders S' subset V gibt, */
+/* welches kleiner ausfällt.   */
+/*  
+Wir erhalten unsere Schranke durch die Analyse von Biased
+Infection with Persistent Sorurce (BIPS) Prozessen, ein dualer
+Prozess zum COBRA Prozess. 
+
