@@ -1,0 +1,35 @@
+Unter Beitrag: In diesem Paper zeigen zwei neue Schranken der
+Cover Time des Cobra Prozesses für den Branchingfaktor b = 2.
+Für beliebige Graphen verbessern wir die Schranke O(n^(11/4)
+log(n)) in [8] zu O(m + (dmax)^2 log(n)) = O(n^2log(n)), wobei
+dmax der maximale Grad eines Knoten im Graphen ist. Für
+r-reguläre zusammenhängende Graphen zeigen wir eine Grenze von
+O((r^2+ r/(1-lambda)) log(n)) in [4], was die Schranke
+O((1/(1-lambda)^3) log(n)) für den Fall von 1 - lambda =
+o(1/sqrt(r)) verbessert. Beide Schranken erwarten hierbei, dass
+1-lambda > C sqrt(log(n)/n) für ein angemessen große Konstante C
+gilt. Da 1-lambda >= phi^2/2 ist, verbessert die neue Schranke
+für reguläre Graphen die obere Schranke von O((r^4/phi^2) log^2n)
+in [8]. Zum Beispiel sind hyperwürfel mit n = 2^d Knoten, welche
+den Grad r = log(n) und sowohl die Leitfähigkeit phi and der
+Eigenwertabstand 1-lambda genau Theta(1/log(n)). Die Schranken in
+[8], [4] und auch in diesem Paper liefern für die Hyperwürfel
+folgende Schranken: O(log^8), O(log^4) und O(log^3(n))
+
+Im weiteren Verlaufen geben wir die Definition des COBRA Prozess
+an und die Hauptresultate. Man beachte einen Graphen mit G=(V,E),
+eine ganzahliges b >= 1 und eine Teilmenge C subset V. Der COBRA
+Prozess startet mit der Menge C und der Branching-Faktor b dient
+zur Bestimmung der weiteren  Mengen (C_t)_(t>=0)  mit C_0 = C und
+den Nachfolger C_(t+1). Jeder Knoten v in C_(t) wählt unabhängig
+b Nachbarn gleichverteilt zufällig aus "mit Ersetzung" und die
+ausgewählten Knoten gehören zu C_(t+1).
+/* "mit Ersetzung" sei hierbei gemeint, dass dieser nicht automatisch */
+/* zur nächsten Menge C_(t+1) gehört  */
+Für C_0 = {u}, sei
+cover(u) = min {T : Cup_(t=0)^T = V} die Anzahl von Runden, die
+der COBRA Prozess zum Besuchen aller Knoten vom Knoten u
+angefangen benötigt; und sei COVER(u) = E(cover(u))
+/* COVER(U) ist damit die erwartende Laufzeit, dass jeder Knoten */
+/* mindestens einmal informiert wurde */
+
