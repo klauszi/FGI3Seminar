@@ -1,0 +1,33 @@
+Für eine Teilmenge S subset V sei Infect(S) die zufällige Menge
+der von S inzifizierten Knoten in einer Runde: Jeder Knoten u in
+V wählt zufällig, gleichverteilt und mit Ersetzung zwei Nachbarn
+und gehört zu Infect(S), gdw. mindestens einier dieser beiden
+Knoten in S liegt. DAher fängt ein BIPS rozess mit A_0 = {v} und
+folgt mit Infect(A_(t-1)) cup {v} für jede Runde t >= 1. 
+
+Der BIPS Prozess ist ein diskreter epidemischer Prozess des
+Empfänglich-Infizierung (SiS) Typ. Die Dynamik solch eines
+Prozess spezfiert wie Knoten von ihren Nachbarn infiziert werden
+und wie sie ihre Infektion verlieren (also in den empfänglichen
+Zustand zurückfinden). Im BIPS Prozess erhalten die Knoten ihren
+infizierten Zustand zurück, wenn sie in jeder Runde bei der
+Kontaktnahme der b zufällig ausgewählten Nachbarn. Wegen der
+Anwesendheit der persistenten (beschädigten) Quelle können alle
+Knoten eventuell infiziert werden. Unser Hauptgrund für die
+Betrachtung dieses parikularen BIPS Prozess ist, weil es dual zum
+COBRA Prozess ist. Der BIPS Prozess ist selbständig interessant,
+da im Kontex von Epidemien, bestimmte Viren diese Eigenschaft
+aufweisen, sodass ein partikularer Wirt can persisten infiziert
+werden.
+
+Zum Vermeiden von Verwirrung zwischen den BIPS Prozess (A_t)_(t
+>= 0) und dem COBRA-Prozess (C_t)_(t>=0), benutzen wir die
+>Notation P(.) für die Wahrscheinlichkeit von BIPS Prozessen und
+P^(^) für COBRA Prozessen. Sei Hit(w) = min {t : w in C_t} die
+Runden der Prozesse wo der Knoten w zum ersten Mal einen Partikel
+erhält. Wir schreiben auch Hit_C(w) and Hit_u(w), falls wir C_0=C
+und C_0 = {u} meinen. Unsere Hauptresultate für COBRA folgt aus
+der Dualität zwischen dem COBRA und BIPS, eingeführt in [4] und
+drückt sich im folgenden Theorem aus:
+
+
