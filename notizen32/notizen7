@@ -1,0 +1,35 @@
+Theorem 1.2 Sei G ein zusammenhängender r-regulärer Graph mit n
+Knoten und 1 - lambda > C sqrt(log(n) / n) für eine angemessene
+große Konstante C. Für den COBRA-Prozess mit dem Brachfaktor b =
+2 ist cover(u) mit hoher Warhscheinlichkeit für jeden Knoten u in V 
+O((r/(1-lambda) log(n))).
+
+Der COBRA Prozess ist ein Typ von mehreren Random Walk Prozessen,
+demnach ist es naheliegend, die Analyse mithilfer genutzten
+Techniken für solche Prozesse zu nutzen. Bisherige Arbeiten mit
+Random Walks in [1-3,7], wo die Cover Time für verschiedene
+Graphenklassen untersucht wurden, nahmen an, dass die Random
+Walks unabhängig sind. Die Analyse des Cobra Prozesses in Dutta
+et al. [5,6] und Mitzenmacher et al. nutzt eine Anzahl von Tools
+für mehrere Random Walks, jedoch die Anwendung dieser Werkzeuge
+waren begrenzt da die Random warks in Cobra hochgradig abhängig
+sind. Eine Alternative Annäherung wurde von Cooper et al [4]
+vorgeschlagen, welcher einführt und ein verwandtes epidemischen
+Prozess BIS analysierte und zeigte, dass es dual ( in gewissen
+Sinne) zu dem COBRA Prozess abhängig der Zeit ist.
+
+Biased Infection with Persistent Source (BIPS). Für einen Graph G
+= (V,E), eine ganzzahliger Wert b >= 1 und ein Knoten v in G,
+welcher als persistenter Quelle einer Infektion agiert. Wir
+betrachten die Prozessmenge (A_t)_(t>0) definiert durch A_0 = {V}
+und der folgenden Regel für A_(t+1) von A_t. Gegeben sei A_t;
+jeder Knoten u in V, anders als die Quelle v, wählt unabhängig
+und gleichverteilt (mit Ersetzung) b Nachbarn und gehört dann zu
+A_(t+1), genau dann wenn einer der ausgewählten Nachbar in A_(t)
+liegt. Zu jedem A_t wird dabei die Quelle v immer hinzugefügt.
+Man nennt dabei A_t die infizierte Menge bei der Runde t. Man
+soll dabei beachten, dass die Quelle v immer infiziert ist,
+wohingegen die anderen Knoten ihren Zustand ständig infiziert und
+als nicht infiziert wechseln können.
+
+
