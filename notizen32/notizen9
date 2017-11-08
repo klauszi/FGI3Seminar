@@ -1,6 +1,6 @@
 Theorem 1.3 Sei G ein zusammenhängender Graph mit einem COBRA und
 BIPS Prozess auf diesen Graphen mit selben parameter b >= 1. Für
-jeden Knoten v in V (der persistente Quelle in BIPS), eine Menge
+jeden Knoten v in V (die persistente Quelle in BIPS), eine Menge
 empty =/= C subset V (die Anfangsmenge der Partikel im COBRA) und
 T >= 0, gilt:
 
@@ -8,5 +8,35 @@ P^(^)(Hit(v) | C_0 = C) = P(C cup A_T = empty | A_0 = {v} ).
 
 Dieses Theorem sagt aus, dass die Wahrscheinlichkeit, dass ein
 Knoten v genau dann noch nicht hitten in der Runde T im mit C
-gestartete COBRA-Prozess ist, wie, dass kein Knoten in C
+gestartete COBRA-Prozess ist, gleich groß ist wie, dass kein Knoten in C
 in Runde T durch BiPS mit der persistenten Quelle v infiziert ist.
+Dieses Theorem wurde in [4] formal bewiesen, sodass wir hier nur
+die zugrundeliegende Idee liefern. Setzt man die Menge der
+Nacharn, dessen knoten in Runde 1,...,T ausgewählt wurde:
+omega(u,t) subset N(u) für u in V, 1 <= 1 <= T, wobei N(u) die
+Nachbarschaft von u beschreibt. 
+/* D.h. Wenn u eine Menge von Knoten bspw 3,4,5,7 in der Runde 3 zufällig */
+/* aussucht, so gilt omega(u,3) = {3,4,5,7}, wobei die Elemente */
+/* zumindest in der Nachbarschaft N(u) enthalten ist.  */
+
+Startet man den COBRA Prozess für T Runden durch solch eine
+Auswahl, dann gilt: falls Knoten u in der vorherigen Runde t-1
+einen partikel erhält, dann sendet dieser in rounde t jeweils ein
+partikel an w(u,t).  Startet man ebenfalls den BiPS Prozess mit
+der selben Nachbarschaftsauswahl jedoch in verkehrter
+Zeitanordnung, dann ist die Nachbarschaftsauswahl omega(v,t), v
+in V mit Runde T + 1 - t. Es stellt sich heraus, dass im
+COBRA-Prozess der Knoten v ohne diese T Runden gd. besucht wird,
+wenn
+im BIPS Prozess zumindest ein Knoten in C in der Runde T
+infiziert wird. Entscheidend ist, dass die Wahrscheinlichkeit,
+dass ein COBRA-Prozess  genau die Menge omega(u,t) auswählt 
+gleich zu der Wahrscheinlichkeit ist, dass der BIPS Prozess genau
+diese Menge in umgekehrte Zeitordnung auswählt. 
+
+Man defniere die Infektionszeit infec(v) als das erste Mal, wenn
+alle Knoten im BIPS Prozess durch die Quelle v infiziert wurden.
+Beweise über die folgendenen zwei Theoreme über den BIPS Prozess
+sind die neuen Hauptwerkzeuge des Paper.
+
+
