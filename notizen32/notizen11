@@ -1,0 +1,17 @@
+COBRA-Prozess mit dem Branchingfaktor kleiner als 2.
+
+Theorem 1.1 und 1.2 sind mit dem Branchingfaktor b = 2 bewiesen.
+Es stellt sich die Frage, wie sich die Cover Time verhält, wenn
+der Branchinfaktor geringer ausfällt. Dabei ist klar, dass der
+Branchinfaktor b=1, also der gewöhnliche Random Walk Prozess, mit
+der unteren Schranke Omega(n * log(n)) nicht genügt. Nehme man
+an, dass am Anfang jeder Runde das Partikel in 2 Teile mit
+Wahrscheinlichkeit p aufteilt, so wäre der Branchingfaktor b = 1
++ p. Im dualen BIPS Prozess wählt entsprechend jeder Knoten mit
+Wahrscheinlichkeit p zwei zufällige Nachbarn unt mit
+Wahrscheinlichkeit 1 - p lediglich einen Nachbarn aus. Der Knoten
+u wird dabei gdw. in der nächsten Runde infiziert, wenn die 
+ausgewählten Nachbarn in der jetztigen Runde infiziert sind. Die
+Grenzen der Cover Time und Infektionszeit der Theoreme
+1.1,1.2,1.4 und 1.5 sind ebenfalls gegeben, wenn 0 < p <= 1 mit p
+sei Konstant gilt.
