@@ -15,3 +15,21 @@ ausgewählten Nachbarn in der jetztigen Runde infiziert sind. Die
 Grenzen der Cover Time und Infektionszeit der Theoreme
 1.1,1.2,1.4 und 1.5 sind ebenfalls gegeben, wenn 0 < p <= 1 mit p
 sei Konstant gilt.
+
+Im verbleibenden Teil des Paper zeigen wir den Theorem 1.4 und
+1.5 mit der Annahme, dass b = 2 außer es wird ausdrücklich
+benannt. Unsere Analyse des BIPS Prozesses, präsentiert in [4],
+basierte auf die abgeschätzte mit der erwartenden Erhöhung der
+Größe von A_t in einer Runde und beruht auf eine starke
+Konzentration der Erhöhung während der mittleren Phase des
+Prozesses. Besondere Pflege musste in der Anfangsphase des
+Prozess, also wenn A_t relativ klein ist, bishin der Endphase,
+wenn V \ A_t wird relativ klein. Die Notation von "relativ klein"
+wurde beim Nutzen von dem Eigenwertabstand 1 - lambda
+quantifiziert.
+
+In Theorem 1.4 beachten wir nur ausschließlich zusammenhängede
+Graphen. Währen wir noch eine positiv erwartende Erhöhung der Größe
+von A_t generell in diesem Fall zeigen; die Erhöhung ist zu
+gering um eine sinnvolle Kozentration zu geben, sodass wir einen
+anderen Ansatz benötigen.
