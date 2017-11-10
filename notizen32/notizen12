@@ -1,0 +1,26 @@
+Unser Beweis von Theorem 1.4 basiert auf das "Serialisieren" des
+BIPS Prozesses. Die Knoten, die sich entscheiden, ob sie in der
+nächsten infizierten Menge A_t+1 enthalten sind, machen ihre
+Entscheiden in einer parallelen globalen Runde. In unseren
+Analyse betrachten wir diesen Prozess so als ob, jeder Knoten
+seine Entscheidung sequentiell macht; ein Knoten nach jedem
+anderen in beliebiger, jedoch festen, Ordnung aller knoten. Die
+Serialisierung is nur ein Artefakt der Analyse und beeinflusst
+den BIPS Prozess keineswegs. Um potenzielle Vewirrung zu
+vermeiden, werden "Runden" als globale parallel Schritte des BIPS
+Prozess und "Schritte" als Aktione einzelner Knoten in
+der Serialisierung des Bips verstanden. 
+
+Der Beweis von Theorem 1.5 kann als ein Kombination von der
+Annäherung von seriellen BIPS Prozessen und die Annäherung in [4]
+angesehen werden, welche mehr detailliserte analyse eines
+Anfangszustand des Prozess anzubieten, wenn die infizierte Menge
+relativ klein ist.
+
+2 Vorbereitung
+
+Die Ungleichheit in Lemma 2.1 ist eine Variante der
+Amzuma-Hoeffding Ungleichheit für Super-martingales. Der Beweis
+dieses Lemma ist eine gefolgerte Adaption des Beweises des
+Theorem 3 von [9]. Wir brauchen es für Corollary 2.2, welches wir
+von Lemma 2.1 ableiten können.
