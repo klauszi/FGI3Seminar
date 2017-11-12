@@ -1,0 +1,33 @@
+-----------------------
+part 2
+
+
+3 inkrementierte Natur des BIPS auf zufällige Graphen (Theorem 4)
+
+
+In diesem Abschnitt beachten wir den BIPS Prozess auf beliebige
+zusammenhängende Graphe, welche nicht unbedingt regulär sein
+müssen. Wir beachten den Grad d(A_t) der infizierten Menge. Für
+eine Teilmenge der Knoten S subset V ist sein Grad definiert als
+d(S) = sum_{u in S} d(u), wobei d(u) der Grad des Knotens u ist.
+
+Wir betrachten eine Runde t >= 1, sodass d(A_(t-1)) < 2m = d(V),
+/* 2m = d(V), da die Addition aller Grade dazu führt, dass die */
+/* Kanten doppelt gezählt werden. */
+also mindestens eine Runde bevor der Prozess fertig ist (bevor die
+infizierte Menge zu V wird). Sei A = A_(t-1) und B = A_t. Wir
+unterteilen die nächste infizierte Menge B in zwei disjunkte
+Mengen B_fix und B_rand, wobei B_fix der deterministische Teil
+von B bestehend aus Knoten, aus den die Nachbarschaft
+ausschließlich aus A besteht,
+und B_rand = B \ B_fix als der "zufällig ausgewählte" Teil von B.
+Wohingegen in B_fix alle Knoten in A liegen müssen, da durch die
+Auswahl von b infizierten Nachbarn dieser immer infiziert ist,
+sind die in B_rand die Knoten, die potenziell nicht infiziert
+sein mussten.
+Daher ist die Quelle v gd. in B_fix, wenn
+alle Nachbarn in A sind, ansonsten ist dieser in B_rand. Definiert man N(S) =
+Bigcup_{u in S} N(u), so gilt:
+B_fix = {u in V : N(u) \subset A}
+B_rand subset (N(A) cup {v}) \ B_fix == C.
+
