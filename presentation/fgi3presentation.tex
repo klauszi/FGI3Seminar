@@ -1,0 +1,487 @@
+\documentclass[presentation,xcolor=svgnames,9pt]{beamer}
+
+\usepackage{ngerman}
+\usepackage{amsthm}
+\usepackage{lipsum}
+\usepackage{capt-of}
+\usepackage[noend]{algpseudocode}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{rotating}
+\usepackage[dvips]{epsfig}
+\usepackage{graphicx}
+\usepackage[outdir=./]{epstopdf}
+\usepackage{acronym}
+\usepackage{tikz}
+\usetikzlibrary{automata,positioning}
+\usepackage{float}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{fit,backgrounds}
+\usetikzlibrary{calc}
+\usepackage{algorithm}
+\usepackage{multirow}
+\usepackage{algorithmicx}
+\usepackage{tikz}
+% \usepackage{enumitem}
+\usepackage{selinput}
+\usepackage{ulem}
+
+\setbeamercovered{transparent}
+\tikzset{cross/.style={cross out, draw=black, minimum
+size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
+%default radius will be 1pt. 
+cross/.default={1pt}}
+
+\usetikzlibrary{arrows,shapes,snakes,automata,backgrounds,petri}
+%Leftrightarrow \setbeamercovered{again covered={\opaqueness<1->{15}}}
+\lstset{basicstyle=\ttfamily,
+  showstringspaces=false,
+  commentstyle=\color{red},
+  keywordstyle=\color{blue}
+}
+
+\newcommand{\mytab}[1]{%
+	\begin{tabular}{@{}c@{}}
+		#1
+	\end{tabular}
+}
+
+\pgfdeclarelayer{bg}    % declare background layer
+\pgfsetlayers{bg,main}  % set the order of the layers (main is the standard layer)
+
+\mode<presentation>
+{
+	\usetheme{Malmoe}
+
+	\usecolortheme{crane}
+	\useinnertheme{circles}
+
+	% Disable navigation bar
+	\setbeamertemplate{navigation symbols}{}
+
+
+}
+
+
+\selectlanguage{ngerman}
+
+\title[FGI3]{Verbesserte Schranke der Cover Time für COBRA-Prozesse auf
+Graphen}
+\author[Klaus-J. Ziegert]{Klaus-J. Ziegert}
+
+\institute[]{Universität Hamburg\\
+	Fakultät für Mathematik, Informatik und Naturwissenschaften\\
+	Fachbereich Informatik}
+
+\date{\today}
+
+\logo{\includegraphics[height=0.5cm]{uhh_logo.png}}
+\useoutertheme{infolines}
+
+\begin{document}
+
+	\begin{frame}
+		\titlepage
+	\end{frame}
+
+	\section{Einleitung}
+
+	\begin{frame}
+	\frametitle{Motiviation: Random Walk Verbesserung}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{COBRA Prozess}
+		\begin{itemize}
+			\item Man beachte einen ungerichteten und
+				zusammenhängenden Graphen
+				$G = (V,E)$ mit $n$ Knoten und
+				$m$ Kanten
+			\item Es sei $C$ eine Teilmenge der
+				Knoten, die am Anfang
+				informiert sind und die Nachricht
+				versenden können
+			\item In jeder Runde $i$ wählen die
+				Knoten in $C_{i-1}$ zufällig und
+				gleichverteilt $b \geq 1$
+				Nachbarn (mit Wiederholung) aus
+			\item Ausgewählte Knoten
+				erhalten eine Nachricht in der nächsten Runde
+				$C_{i+1}$; nicht
+				ausgewählte Knoten verlieren u.U.
+				die Information
+			\item Sei $Hit_{C}(u)$ die Runde bei dem
+				der
+				Knoten $u$ das erste Mal
+				benachrichtigt wurde, so ist die
+				Cover Time: 
+				\[
+				Cover(C) =
+				max\left\{
+					Hit_{C}(v) : v \in V)
+				\right\}
+				\]
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}
+  \only<1-7>{
+		\frametitle{Beispiel COBRA Prozess 
+	}
+		\begin{columns}
+		\begin{column}{0.55\linewidth}
+\begin{figure}
+\begin{tikzpicture}[node distance=2cm,>=stealth',bend angle=45,auto]
+
+  \tikzstyle{place}=[circle,thick,draw=black!75,minimum size=6mm]
+  \tikzstyle{red place}=[place,draw=black!75,fill=red!75]
+  \tikzstyle{every label}=[black]
+
+  \begin{scope}
+
+	\only<1>{\node [red place,tokens=1,label=left:$0$] (0) []
+		{};}
+	\only<2-3>{\node [red place,tokens=3,label=left:$0$] (0) []
+		{};}
+	\only<4>{\node [red place,tokens=1,label=left:$0$] (0) []
+		{};}
+	\only<5-7>{\node [red place,tokens=1,label=left:$0$] (0) []
+		{};}
+
+	\only<1>{\node [red place,tokens=1,label=below:$2$] (2)
+		[right of=0] {};}
+	\only<2-3>{\node [red place,tokens=3,label=below:$2$] (2)
+		[right of=0] {};}
+	\only<4>{\node [red place,tokens=0,label=below:$2$] (2)
+		[right of=0] {};}
+	\only<5>{\node [red place,tokens=0,label=below:$2$] (2)
+		[right of=0] {};}
+	\only<6>{\node [red place,tokens=1,label=below:$2$] (2)
+		[right of=0] {};}
+	\only<7>{\node [red place,tokens=0,label=below:$2$] (2)
+		[right of=0] {};}
+
+	\only<1-3>{\node [place,tokens=0,label=above:$1$] (1)
+		[above of=2] {}};
+	\only<4>{\node [place,tokens=4,label=above:$1$] (1)
+		[above of=2] {}};
+	\only<5>{\node [red place,tokens=1,label=above:$1$] (1)
+		[above of=2] {}};
+	\only<6-7>{\node [red place,tokens=1,label=above:$1$] (1)
+		[above of=2] {}};
+
+	\only<1-3>{\node [place,tokens=0,label=below:$3$] (3)
+		[below of=2] {};}
+	\only<4>{\node [place,tokens=1,label=below:$3$] (3)
+		[below of=2] {};}
+	\only<5>{\node [red place,tokens=1,label=below:$3$] (3)
+		[below of=2] {};}
+	\only<6-7>{\node [red place,tokens=0,label=below:$3$] (3)
+		[below of=2] {}};
+
+	\only<1-5>{\node [place,tokens=0,label=right:$4$] (4)
+		[right of=1] {};}
+	\only<6-7>{\node [red place,tokens=1,label=right:$4$] (4)
+		[right of=1] {}};
+
+	\only<1-6>{\node [place,tokens=0,label=right:$5$] (5)
+		[right of=2] {};}
+	\only<7>{\node [red place,tokens=1,label=right:$5$] (5)
+		[right of=2] {};}
+	\path (0) edge (1)
+	(0) edge (2)
+	(0) edge (3)
+	(1) edge (4)
+	(1) edge (2)
+	(2) edge (5);
+	\only<3>{
+		\begin{pgfonlayer}{bg}
+		\path (0) edge[->,red!50,line width=2.0pt] node
+		{$2$} (1);
+		\end{pgfonlayer}
+	}
+	\only<3>{
+		\begin{pgfonlayer}{bg}
+		\path (0) edge[->,red!50,line width=2.0pt]
+		(3){};
+		\end{pgfonlayer}
+	}
+		\only<3>{
+		\begin{pgfonlayer}{bg}
+			\path (2) edge[->,red!50,line width=2.0pt] (0) {};
+		\end{pgfonlayer}
+		}
+	\only<3>{
+		\begin{pgfonlayer}{bg}
+			\path (2) edge[->,red!50,line width=2.0pt] node
+			{$2$}(1) {}; 
+		\end{pgfonlayer}
+	}
+  \end{scope}
+\end{tikzpicture}
+\caption{$C = \left\{ 0,2 \right\}$, $b = 3$}
+\end{figure}
+  \end{column}
+	  \begin{column}{0.45\linewidth}
+		  \only<1-5>{
+		\begin{block}{
+		\only<1>{(Runde 0)}\only<2>{(Runde 1 Phase
+		1)}\only<3>{(Runde 1 Phase 2a)}\only<4>{(Runde 1
+		Phase 2b)}\only<5>{(Runde 1 Phase 3)}
+	}
+		\only<1>{Knoten in $C_{0}$ hat eine Marke}
+		\only<2>{Jede Marke teilt sich in $b$ Submarken}
+		\only<3>{Jede Submarke wählt zufällig und
+		gleichverteilt einen Nachbarn}
+		\only<4>{Submarken gehen zum ausgewählten Nachbarn
+		über}
+		\only<5>{Submarken werden oder verschmelzen ggf. zu einer
+		Marke}
+	\end{block}
+}
+		  \begin{block}{History}
+			  \begin{itemize}
+				\item $C_{0} = \left\{ 0,2 \right\}$
+				\only<5-7>{
+				\item $C_{1} = \left\{
+						0,1,2,3
+					\right\}$
+				}
+				\only<6-7>{
+				\item $C_{2} = \left\{
+						0,1,2,4
+					\right\}$
+				}
+				\only<7>{
+				\item $C_{3} = \left\{
+						0,1,4,5
+					\right\}$
+				\item $\dots$ 
+				\item $Cover(C) = Hit_{C}(5) = 3$
+				}
+
+			  \end{itemize}
+		  \end{block}
+	  \end{column}
+
+  \end{columns}
+  }
+	\end{frame}
+
+
+	\begin{frame}
+		\only<1-2>
+		{
+		\only<1>{\frametitle{Bekannte Schranken der
+		$E[Cover(G)]$ für beliebige Graphen}}
+		\only<2>{\frametitle{Neue obere Schranken der
+		$E[Cover(G)]$ für beliebige Graphen}}
+		\begin{figure}
+		\begin{tikzpicture}
+			\draw[->] (0,0) -- (11,0);
+			\foreach \x in {0.8}
+			\draw(\x cm,7pt) -- (\x cm, -3pt);
+			\draw (0.8,0) node[below=3pt] {$0$};
+			\draw (5,0)
+			node[rectangle,above=1pt,draw=black,fill=red!
+				75,
+			minimum width=5cm]
+			{$E[Cover(G)]$};
+			\draw[->, line width=1pt] (2,1.5)
+			node[above=3pt]
+			{$\Omega\left( max\left(
+				Diam(G),\log n \right) \right)$}-- (2,0) ;
+			\only<1>{
+			\draw (8,3) node[above=3pt]
+			{\color{white}{\textbf{Theorem
+			1.1:}}}; 
+			\draw[->, line width=1pt] (10.5,1.5)
+			node[above=3pt]
+			{$\mathcal{O}\left(n^{11/4}\log n \right)$}--
+			(10.5,0) ;
+		}
+			\only<2>{
+			\draw[->, line width=1pt] (10.5,1.5)
+			node[above=3pt]
+			{\sout{$\mathcal{O}\left(n^{11/4}\log n
+		\right)$}}--
+			(10.5,0) ;
+			\draw (8,3) node[above=3pt] {\textbf{Theorem
+			1.1:}}; 
+			\draw[->, line width=1pt] (8,2)
+			node[above=3pt]
+			{$\mathcal{O}\left(m + \left(
+			d_{max}
+			\right)^2\log n
+		\right)$}--
+			(8,0) ;
+		}
+		\end{tikzpicture}
+		\caption{Schranken des Erwartungswertes der Cover
+		Time für beliebige Graphen $G$}
+	\end{figure}
+}
+	\end{frame}
+
+	\begin{frame}
+		\only<1-2>
+		{
+		\only<1>{\frametitle{Bekannte Schranken der 
+			$E[Cover(G_{r})]$ für reguläre Graphen}}
+		\only<2>{\frametitle{Neue obere Schranke für
+			$E[Cover(G_{r})]$ für reguläre Graphen}}
+		\begin{figure}
+		\begin{tikzpicture}
+			\draw[->] (0,0) -- (11,0);
+			\foreach \x in {0.8}
+			\draw(\x cm,7pt) -- (\x cm, -3pt);
+			\draw (0.8,0) node[below=3pt] {$0$};
+			\draw (5,0)
+			node[rectangle,above=1pt,draw=black,fill=red!
+				75,
+			minimum width=5cm]
+			{$E[Cover(G)]$};
+			\draw[->, line width=1pt] (2,1.5)
+			node[above=3pt]
+			{$\Omega\left( max\left(
+				Diam(G),\log n \right) \right)$}-- (2,0) ;
+			\only<1>{
+			\draw (8,3) node[above=3pt]
+			{\color{white}{\textbf{Theorem
+			1.2:}}}; 
+			\draw[->, line width=1pt] (8.5,2.1)
+			node[above=3pt]
+			{
+				$
+			\begin{aligned}
+				&\mathcal{O}\left( \frac{r^4}{
+				\phi^2
+				}\log^2 n
+				\right) 
+				&
+				\\
+				&\mathcal{O}\left( \frac{1}{\left(
+				1-\lambda
+				\right)^3}\log n
+				\right) 
+				&\text{, falls
+				} 1 - \lambda > C
+				\sqrt{\frac{\log n}{n}}\\
+				& \color{white}{
+				\mathcal{O}\left( \left( \frac{r}{\left(
+				1-\lambda
+			\right)} + r^2 \right) \log n 
+		\right)}
+				&
+				\color{white}{
+				\text{, falls
+				} 1 - \lambda > C
+				\sqrt{\frac{\log n}{n}}
+			}\\
+			\end{aligned}
+				$
+			} --
+			(8.5,0) ;
+		}
+			\only<2>{
+			\draw[->, line width=1pt] (8.5,2.1)
+			node[above=3pt]
+			{
+				$
+			\begin{aligned}
+				&\mathcal{O}\left( \frac{r^4}{
+				\phi^2
+				}\log^2 n
+				\right) 
+				&
+				\\
+				&\mathcal{O}\left( \frac{1}{\left(
+				1-\lambda
+				\right)^3}\log n
+				\right) 
+				&
+				\text{, falls
+				} 1 - \lambda > C
+				\sqrt{\frac{\log n}{n}}\\
+				&\mathcal{O}\left( \left( \frac{r}{\left(
+				1-\lambda
+			\right)} + r^2 \right) \log n 
+				\right) 
+				&
+				\text{, falls
+				} 1 - \lambda > C
+				\sqrt{\frac{\log n}{n}}\\
+			\end{aligned}
+				$
+			} --
+			(8.5,0) ;
+			\draw (3.7,2.4) node[above=3pt] {\textbf{Theorem
+			1.2:}}; 
+		}
+		\end{tikzpicture}
+		\caption{Schranken des Erwartungswertes der Cover
+			Time für
+		$r$-reguläre Graphen $G$}
+	\end{figure}
+}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Resultate des Papers}
+		\begin{block}{Theorem 1.1}
+			Sei $G$ ein zusammenhängender Graph mit
+			$n$ Knoten, $m$ Kanten und den
+			Maximalgrad $d_{max}$. Die Cover Time
+			$cover(u)$ eines COBRA-Prozesses mit $b =
+			2$ auf dem Graphen $G$ ist m.h.W. für
+			alle Knoten $u \in V$:
+			\[\mathcal{O}\left( m + \left( d_{max}
+			\right)^2 \log n \right)\]
+		\end{block}
+		\begin{block}{Theorem 1.2}
+			Sei $G$ ein zusammenhängender $r$-regulärer Graph mit
+			$n$ Knoten, der die Bedingung
+			$1 - \lambda > C
+			\sqrt{\frac{\log n}{n}}$ für eine
+			angemessen große Konstante $C$ erfüllt. 
+			 Die Cover Time
+			$cover(u)$ eines COBRA-Prozesses mit $b =
+			2$ auf dem Graphen $G$ ist m.h.W. für
+			alle Knoten $u \in V$:
+			\[\mathcal{O}\left( \left(
+				\frac{r}{1-\lambda} + r^2
+			\right) \log n \right)\]
+		\end{block}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Vorgehen des Papers}
+	\end{frame}
+
+	\section{Dualer BIPS Prozess}
+
+	\begin{frame}
+		\frametitle{Vorgehen des Papers}
+	\end{frame}
+
+	\section{natürlicher Wachstum des BIPS Prozesses}
+
+	\begin{frame}
+	\end{frame}
+
+	\section{COBRA Prozess mit Branching-Faktor kleiner als 2}
+
+	\begin{frame}
+
+	\end{frame}
+
+	\section{Zusammenfassung}
+
+\end{document}
+
